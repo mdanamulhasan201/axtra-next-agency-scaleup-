@@ -34,12 +34,6 @@ const Sidebar = () => {
         setIsSidebarOpen((prev) => !prev);
     };
 
-    // // Handle Dark Mode Toggle
-    // const handleDarkModeToggle = () => {
-    //     dispatch(toggleDarkMode());
-    //     document.documentElement.classList.toggle("dark", !isDarkMode);
-    // };
-
     return (
         <div className="z-50">
             {/* Sidebar Toggle Button */}

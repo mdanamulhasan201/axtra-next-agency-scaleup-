@@ -1,11 +1,40 @@
-import { FaSearch, FaBars } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useState, useRef } from "react";
+import { gsap } from "gsap";
 import logoWhite from "../../assets/site-logo-white.webp";
 import logoBlack from "../../assets/logo-black.webp";
-import { useSelector } from "react-redux";
+import { CgMenuRight } from "react-icons/cg";
+import { IoSearch } from "react-icons/io5";
+import { RxCross2 } from "react-icons/rx";
 
 const Navbar = () => {
     const isDarkMode = useSelector((state) => state.darkMode.isDarkMode);
+    const [isSearchOpen, setIsSearchOpen] = useState(false);
+    const searchDropdownRef = useRef(null);
+
+    const toggleSearch = () => {
+        if (isSearchOpen) {
+            // Close the dropdown (top to bottom effect)
+            gsap.to(searchDropdownRef.current, {
+                y: 10,
+                opacity: 0,
+                scaleY: 0,
+                duration: 0.2,
+                ease: "power2.out",
+            });
+        } else {
+            // Open the dropdown (bottom to top effect)
+            gsap.to(searchDropdownRef.current, {
+                y: 0, 
+                opacity: 1,
+                scaleY: 1,
+                duration: 0.1,
+                ease: "power2.out",
+            });
+        }
+        setIsSearchOpen(!isSearchOpen);
+    };
 
     return (
         <nav
@@ -70,15 +99,35 @@ const Navbar = () => {
             </div>
 
             {/* Right: Icons */}
-            <div className="flex items-center space-x-4">
-                <button className="p-2 rounded hover:bg-gray-200 hover:bg-opacity-20 transition duration-300">
-                    <FaSearch className="text-lg" />
-                </button>
-                <div className="h-7 w-0.5 bg-gray-200">
+            <div className="flex items-center space-x-4 relative">
+                <div className="relative">
+                    <button
+                        className="p-2 "
+                        onClick={toggleSearch}
+                    >
+                        {isSearchOpen ? (
 
+                            <RxCross2 className="text-[25px]" />
+                        ) : (
+
+                            <IoSearch className="text-[25px]" />
+                        )}
+                    </button>
+                    <div
+                        ref={searchDropdownRef}
+                        className={`absolute top-12 -left-52 w-64 bg-[#F0F0F0] p-4 rounded-md shadow-md origin-top transform opacity-0 transition-all duration-300`}
+                    >
+                        <input
+                            type="text"
+                            placeholder="Search.."
+                            className={`w-full bg-[#FFFFFF] text-black p-2 rounded-md outline-none border focus:ring-2 focus:ring-gray-400 ${isDarkMode ? "bg-[#2c2c2c] text-white" : "bg-gray-100 text-black"
+                                }`}
+                        />
+                    </div>
                 </div>
-                <button className="p-2 rounded hover:bg-gray-200 hover:bg-opacity-20 transition duration-300">
-                    <FaBars className="text-lg" />
+                <div className="h-7 w-0.5 bg-gray-200"></div>
+                <button >
+                    <CgMenuRight className="text-[25px]" />
                 </button>
             </div>
         </nav>
