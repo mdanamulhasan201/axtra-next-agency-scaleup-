@@ -353,52 +353,52 @@ const Navbar = () => {
                         </div>
 
                         <div className="w-7/12 mt-20 py-16">
-                            <div className={`flex flex-col  text-2xl  border-t border-s border-[#33333363] overflow-y-auto  uppercase ${isDarkMode ? "border-[#33333363]" : "border-[#73737332]"}`}>
+                            <div className={`flex flex-col   text-2xl  border-t border-s border-[#33333363]   uppercase ${isDarkMode ? "border-[#33333363]" : "border-[#73737332]"}`}>
                                 <Link
                                     to="/"
-                                    className={`hover:text-gray-500 transition duration-300 text-4xl lg:text-5xl 2xl:text-6xl border-b  px-20 py-8 ${isDarkMode ? "border-[#33333363]" : "border-[#73737332]"}`}
+                                    className={`hover:text-gray-500 transition duration-300 text-2xl lg:text-3xl 2xl:text-6xl border-b  px-20 py-8 ${isDarkMode ? "border-[#33333363]" : "border-[#73737332]"}`}
                                     onClick={toggleSidebar}
                                 >
                                     Home
                                 </Link>
                                 <Link
                                     to="/about"
-                                    className={`hover:text-gray-500 transition duration-300 text-4xl lg:text-5xl 2xl:text-6xl border-b  px-20 py-8 ${isDarkMode ? "border-[#33333363]" : "border-[#73737332]"}`}
+                                    className={`hover:text-gray-500 transition duration-300 text-2xl lg:text-3xl 2xl:text-6xl border-b  px-20 py-8 ${isDarkMode ? "border-[#33333363]" : "border-[#73737332]"}`}
                                     onClick={toggleSidebar}
                                 >
                                     About
                                 </Link>
                                 <Link
                                     to="/pages"
-                                    className={`hover:text-gray-500 transition duration-300 text-4xl lg:text-5xl 2xl:text-6xl border-b  px-20 py-8 ${isDarkMode ? "border-[#33333363]" : "border-[#73737332]"}`}
+                                    className={`hover:text-gray-500 transition duration-300 text-2xl lg:text-3xl 2xl:text-6xl border-b  px-20 py-8 ${isDarkMode ? "border-[#33333363]" : "border-[#73737332]"}`}
                                     onClick={toggleSidebar}
                                 >
                                     Pages
                                 </Link>
                                 <Link
                                     to="/services"
-                                    className={`hover:text-gray-500 transition duration-300 text-4xl lg:text-5xl 2xl:text-6xl border-b  px-20 py-8 ${isDarkMode ? "border-[#33333363]" : "border-[#73737332]"}`}
+                                    className={`hover:text-gray-500 transition duration-300 text-2xl lg:text-3xl 2xl:text-6xl border-b  px-20 py-8 ${isDarkMode ? "border-[#33333363]" : "border-[#73737332]"}`}
                                     onClick={toggleSidebar}
                                 >
                                     Services
                                 </Link>
                                 <Link
                                     to="/team"
-                                    className={`hover:text-gray-500 transition duration-300 text-4xl lg:text-5xl 2xl:text-6xl border-b  px-20 py-8 ${isDarkMode ? "border-[#33333363]" : "border-[#73737332]"}`}
+                                    className={`hover:text-gray-500 transition duration-300 text-2xl lg:text-3xl 2xl:text-6xl border-b  px-20 py-8 ${isDarkMode ? "border-[#33333363]" : "border-[#73737332]"}`}
                                     onClick={toggleSidebar}
                                 >
                                     Team
                                 </Link>
                                 <Link
                                     to="/blog"
-                                    className={`hover:text-gray-500 transition duration-300 text-4xl lg:text-5xl 2xl:text-6xl border-b  px-20 py-8 ${isDarkMode ? "border-[#33333363]" : "border-[#73737332]"}`}
+                                    className={`hover:text-gray-500 transition duration-300 text-2xl lg:text-3xl 2xl:text-6xl border-b  px-20 py-8 ${isDarkMode ? "border-[#33333363]" : "border-[#73737332]"}`}
                                     onClick={toggleSidebar}
                                 >
                                     Blog
                                 </Link>
                                 <Link
                                     to="/contact"
-                                    className="hover:text-gray-500 transition duration-300 text-4xl lg:text-5xl 2xl:text-6xl  px-20 py-5"
+                                    className="hover:text-gray-500 transition duration-300 text-2xl lg:text-3xl 2xl:text-6xl  px-20 py-5"
                                     onClick={toggleSidebar}
                                 >
                                     Contact

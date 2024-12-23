@@ -3,9 +3,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* * {
+* {
   font-family: "Kanit", sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-} */
+}
+#scroll-container {
+  overflow: hidden;
+}
+
+body {
+  cursor: default !important;
+}
+
+a,
+button,
+input,
+textarea,
+select,
+label {
+  cursor: pointer !important;
+}
+
+.react-animated-cursor {
+  pointer-events: none;
+}
