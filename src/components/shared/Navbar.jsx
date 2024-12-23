@@ -14,6 +14,7 @@ const Navbar = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const searchDropdownRef = useRef(null);
     const sidebarRef = useRef(null);
+    const sidebarRefPh = useRef(null);
 
     const toggleSearch = () => {
         if (isSearchOpen) {
@@ -56,6 +57,35 @@ const Navbar = () => {
                 opacity: 0
             });
             gsap.to(sidebarRef.current, {
+                scale: 1,
+                opacity: 1,
+                duration: 0.1,
+                ease: "power2.out"
+            });
+        }
+        setIsSidebarOpen(!isSidebarOpen);
+    };
+
+    const toggleSidebarInmobile = () => {
+        if (isSidebarOpen) {
+            // Zoom out animation
+            gsap.to(sidebarRefPh.current, {
+                scale: 0.5,
+                opacity: 0,
+                duration: 0.3,
+                ease: "power2.inOut",
+                onComplete: () => {
+                    gsap.set(sidebarRefPh.current, { display: 'none' });
+                }
+            });
+        } else {
+            // Zoom in animation
+            gsap.set(sidebarRefPh.current, {
+                display: 'block',
+                scale: 0.5,
+                opacity: 0
+            });
+            gsap.to(sidebarRefPh.current, {
                 scale: 1,
                 opacity: 1,
                 duration: 0.1,
@@ -154,13 +184,68 @@ const Navbar = () => {
                         </div>
                     </div>
                     <div className="h-7 w-0.5 bg-gray-200"></div>
-                    <button onClick={toggleSidebar} className="">
+
+                    <button onClick={toggleSidebar} className="hidden lg:block">
+                        <CgMenuRight className="text-[25px]" />
+                    </button>
+                    {/* this button only show mobile device  */}
+                    <button onClick={toggleSidebarInmobile} className="block lg:hidden">
                         <CgMenuRight className="text-[25px]" />
                     </button>
                 </div>
             </nav>
 
-            {/* Full-page Sidebar with Zoom Animation */}
+            <div ref={sidebarRefPh}
+                className={`fixed block lg:hidden top-0 left-0 w-full h-full ${isDarkMode ? "bg-[#121212] text-white" : "bg-[#121212] text-white"
+                    } z-50`}
+                style={{ display: 'none' }}>
+                <div className="absolute top-5 right-5">
+                    <button
+                        onClick={toggleSidebarInmobile}
+                        className={`p-5 rounded-full ${isDarkMode ? "text-white bg-[#232323]" : "text-white bg-[#232323]"}`}
+                    >
+                        <RxCross2 className="text-[25px]" />
+                    </button>
+                </div>
+
+                <div className="p-5 mt-24 px-8">
+                    <ul className="flex flex-col justify-center text-xl space-y-10 uppercase">
+                        <li className="">
+                            <Link className="hover:text-gray-500 transition duration-300 ">
+                                Home
+                            </Link>
+                        </li>
+                        <li>
+                            <Link className="hover:text-gray-500 transition duration-300">
+                                About
+                            </Link>
+                        </li>
+                        <li>
+                            <Link className="hover:text-gray-500 transition duration-300">
+                                Services
+                            </Link>
+                        </li>
+                        <li>
+                            <Link className="hover:text-gray-500 transition duration-300">
+                                Page
+                            </Link>
+                        </li>
+                        <li>
+                            <Link className="hover:text-gray-500 transition duration-300">
+                                blog
+                            </Link>
+                        </li>
+                        <li>
+                            <Link className="hover:text-gray-500 transition duration-300">
+                                Contact
+                            </Link>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+            {/* Full-page Sidebar with Zoom Animation only large device show */}
             <div
                 ref={sidebarRef}
                 className={`fixed top-0 left-0 w-full h-full ${isDarkMode ? "bg-[#121212] text-white" : "bg-white text-black"
@@ -257,35 +342,35 @@ const Navbar = () => {
                                 </Link>
                                 <Link
                                     to="/about"
-                                     className={`hover:text-gray-500 transition duration-300 text-4xl lg:text-5xl 2xl:text-6xl border-b  px-20 py-8 ${isDarkMode ? "border-[#33333363]" : "border-[#73737332]"}`}
+                                    className={`hover:text-gray-500 transition duration-300 text-4xl lg:text-5xl 2xl:text-6xl border-b  px-20 py-8 ${isDarkMode ? "border-[#33333363]" : "border-[#73737332]"}`}
                                     onClick={toggleSidebar}
                                 >
                                     About
                                 </Link>
                                 <Link
                                     to="/pages"
-                                     className={`hover:text-gray-500 transition duration-300 text-4xl lg:text-5xl 2xl:text-6xl border-b  px-20 py-8 ${isDarkMode ? "border-[#33333363]" : "border-[#73737332]"}`}
+                                    className={`hover:text-gray-500 transition duration-300 text-4xl lg:text-5xl 2xl:text-6xl border-b  px-20 py-8 ${isDarkMode ? "border-[#33333363]" : "border-[#73737332]"}`}
                                     onClick={toggleSidebar}
                                 >
                                     Pages
                                 </Link>
                                 <Link
                                     to="/services"
-                                     className={`hover:text-gray-500 transition duration-300 text-4xl lg:text-5xl 2xl:text-6xl border-b  px-20 py-8 ${isDarkMode ? "border-[#33333363]" : "border-[#73737332]"}`}
+                                    className={`hover:text-gray-500 transition duration-300 text-4xl lg:text-5xl 2xl:text-6xl border-b  px-20 py-8 ${isDarkMode ? "border-[#33333363]" : "border-[#73737332]"}`}
                                     onClick={toggleSidebar}
                                 >
                                     Services
                                 </Link>
                                 <Link
                                     to="/team"
-                                     className={`hover:text-gray-500 transition duration-300 text-4xl lg:text-5xl 2xl:text-6xl border-b  px-20 py-8 ${isDarkMode ? "border-[#33333363]" : "border-[#73737332]"}`}
+                                    className={`hover:text-gray-500 transition duration-300 text-4xl lg:text-5xl 2xl:text-6xl border-b  px-20 py-8 ${isDarkMode ? "border-[#33333363]" : "border-[#73737332]"}`}
                                     onClick={toggleSidebar}
                                 >
                                     Team
                                 </Link>
                                 <Link
                                     to="/blog"
-                                     className={`hover:text-gray-500 transition duration-300 text-4xl lg:text-5xl 2xl:text-6xl border-b  px-20 py-8 ${isDarkMode ? "border-[#33333363]" : "border-[#73737332]"}`}
+                                    className={`hover:text-gray-500 transition duration-300 text-4xl lg:text-5xl 2xl:text-6xl border-b  px-20 py-8 ${isDarkMode ? "border-[#33333363]" : "border-[#73737332]"}`}
                                     onClick={toggleSidebar}
                                 >
                                     Blog
