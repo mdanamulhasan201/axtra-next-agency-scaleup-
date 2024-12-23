@@ -73,6 +73,9 @@ const Banner = () => {
     return (
         <div className={` relative ${isDarkMode ? "bg-[#171717] text-white" : "bg-white text-black"
             }`}>
+
+                  {/* left side circle */}
+        <div className="absolute top-1/2 left-0 transform -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-gray-500 rounded-full opacity-30"></div>
             <div className="max-w-screen-xl mx-auto py-20 md:pb-96 ">
                 <div className="px-5">
                     <div className="flex gap-10 items-center">

@@ -138,76 +138,75 @@ const WhoWeAre = () => {
     };
 
     return (
-        <div className="bg-[#171717] text-white">
-            <div className="max-w-screen-xl mx-auto px-5">
-                <div className="flex flex-col lg:flex-row justify-between items-center py-28 relative">
-                    <div className="w-full lg:w-7/12 xl:w-8/12 xl:border-r overflow-hidden">
-                        <div ref={imageRef} className="transform flex justify-center lg:justify-start">
-                            <img
-                                src={weAreImg}
-                                alt="Who we are"
-                                className=""
-                            />
-                        </div>
+        <div className="bg-[#171717] text-white relative overflow-hidden">
+        {/* Right side circle */}
+        <div className="absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] border-2 border-gray-500 rounded-full opacity-30"></div>
+
+        <div className="max-w-screen-xl mx-auto px-5 relative z-1">
+            <div className="flex flex-col lg:flex-row justify-between items-center ">
+                <div className="w-full lg:w-7/12 xl:w-8/12 xl:border-r overflow-hidden">
+                    <div ref={imageRef} className="transform flex justify-center lg:justify-start">
+                        <img src={weAreImg} alt="Who we are" className="" />
                     </div>
+                </div>
 
-                    <div className="w-full lg:w-5/12 xl:w-4/12">
-                        <div className="p-5 mt-5 md:mt-10 lg:mt-24 xl:mt-40 2xl:mt-60">
-                            <div className="block xl:hidden" ref={headingRef}>
-                                <h3 className="text-lg uppercase font-semibold">Who We Are</h3>
-                                <h1 className="heading1 font-semibold text-xl sm:text-4xl uppercase xl:w-[500px] tracking-wide">
-                                    We are a leading digital marketing agency
-                                </h1>
-                            </div>
+                <div className="w-full lg:w-5/12 xl:w-4/12">
+                    <div className="p-5 mt-5 md:mt-10 lg:mt-24 xl:mt-40 2xl:mt-60">
+                        <div className="block xl:hidden" ref={headingRef}>
+                            <h3 className="text-lg uppercase font-semibold">Who We Are</h3>
+                            <h1 className="heading1 font-semibold text-xl sm:text-4xl uppercase xl:w-[500px] tracking-wide">
+                                We are a leading digital marketing agency
+                            </h1>
+                        </div>
 
-                            <p className="paragraph text-[#999999] leading-7 mt-10 lg:mt-20 xl:mt-52 2xl:mt-40">
-                                We're a team of strategic digital marketing working globally with the largest brands.
-                                We believe that progress only happens when you refuse to play things safe.
-                                We combine ideas and behaviors, and insights with design, technological data
-                                to produce brand experiences that customers love our services.
-                            </p>
+                        <p className="paragraph text-[#999999] leading-7 mt-10 lg:mt-40 xl:mt-72 2xl:mt-44">
+                            We're a team of strategic digital marketing working globally with the largest brands.
+                            We believe that progress only happens when you refuse to play things safe.
+                            We combine ideas and behaviors, and insights with design, technological data
+                            to produce brand experiences that customers love our services.
+                        </p>
 
-                            <div className="mt-16">
-                                <button
-                                    ref={buttonRef}
-                                    className="relative px-6 py-3 border-2 border-gray-500 text-gray-500 w-36 h-36 rounded-full bg-transparent overflow-hidden group"
+                        <div className="mt-16">
+                            <button
+                                ref={buttonRef}
+                                className="relative px-6 py-3 border-2 border-gray-500 text-gray-500 w-36 h-36 rounded-full bg-transparent overflow-hidden group"
+                                style={{
+                                    transform: `translate(${position.x}px, ${position.y}px)`,
+                                    transition: 'transform 0.3s ease',
+                                }}
+                                onMouseEnter={handleMouseEnter}
+                                onMouseMove={handleMouseMove}
+                                onMouseLeave={handleMouseLeave}
+                            >
+                                <span
+                                    className="absolute inset-0 bg-white rounded-full transition-all duration-300 ease-in-out transform scale-0 group-hover:scale-150"
                                     style={{
-                                        transform: `translate(${position.x}px, ${position.y}px)`,
-                                        transition: 'transform 0.3s ease',
+                                        zIndex: -1,
                                     }}
-                                    onMouseEnter={handleMouseEnter}
-                                    onMouseMove={handleMouseMove}
-                                    onMouseLeave={handleMouseLeave}
-                                >
-                                    <span
-                                        className="absolute inset-0 bg-white rounded-full transition-all duration-300 ease-in-out transform scale-0 group-hover:scale-150"
-                                        style={{
-                                            zIndex: -1,
-                                        }}
-                                    ></span>
-                                    <span className="relative flex items-center capitalize group-hover:text-black transition-colors duration-300 ease-in-out">
-                                        Explore us
-                                        <RxArrowTopRight />
-                                    </span>
-                                </button>
-                            </div>
+                                ></span>
+                                <span className="relative flex items-center capitalize group-hover:text-black transition-colors duration-300 ease-in-out">
+                                    Explore us
+                                    <RxArrowTopRight />
+                                </span>
+                            </button>
                         </div>
                     </div>
+                </div>
 
-                    {/* Hidden content for large screens */}
-                    <div className="hidden lg:block">
-                        <div className="absolute top-48 left-[600px] xl:left-1/2 transform">
-                            <div className="bg-[#171717] px-5 py-16">
-                                <h3 ref={hiddenHeadingRef} className="text-lg uppercase font-semibold">Who We Are</h3>
-                                <h1 ref={hiddenSubHeadingRef} className="font-semibold text-4xl xl:text-5xl uppercase xl:w-[500px]">
-                                    We are leading digital marketing agency
-                                </h1>
-                            </div>
+                {/* Hidden content for large screens */}
+                <div className="hidden lg:block">
+                    <div className="absolute top-32 left-[600px] xl:left-1/2 transform">
+                        <div className="bg-[#171717] px-5 py-16">
+                            <h3 ref={hiddenHeadingRef} className="text-lg uppercase font-semibold">Who We Are</h3>
+                            <h1 ref={hiddenSubHeadingRef} className="font-semibold text-4xl xl:text-5xl uppercase xl:w-[500px]">
+                                We are leading digital marketing agency
+                            </h1>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     );
 };
 
