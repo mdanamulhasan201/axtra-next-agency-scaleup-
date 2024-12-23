@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import logoWhite from "../../assets/site-logo-white.webp";
 import logoBlack from "../../assets/logo-black.webp";
@@ -15,7 +15,7 @@ const Navbar = () => {
     const searchDropdownRef = useRef(null);
     const sidebarRef = useRef(null);
     const sidebarRefPh = useRef(null);
-
+    const [isScrolled, setIsScrolled] = useState(false);
     const toggleSearch = () => {
         if (isSearchOpen) {
             gsap.to(searchDropdownRef.current, {
@@ -95,10 +95,31 @@ const Navbar = () => {
         setIsSidebarOpen(!isSidebarOpen);
     };
 
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 0) {
+                setIsScrolled(true);
+            } else {
+                setIsScrolled(false);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
     return (
         <>
             <nav
-                className={`fixed top-0 left-0 w-full px-5 lg:px-10 py-6 z-40 flex items-center justify-between ${isDarkMode ? "bg-[#121212] text-white" : "bg-white text-black"
+                className={`sticky top-0 left-0 w-full px-5 lg:px-10 py-6 z-40 flex items-center justify-between transition-all duration-300 ${isDarkMode
+                    ? isScrolled
+                        ? "bg-[#121212] text-white  border-b border-gray-800"
+                        : "bg-[#121212] text-white"
+                    : isScrolled
+                        ? "bg-white text-black border-b border-gray-100"
+                        : "bg-white text-black"
                     }`}
             >
                 {/* Left: Logo */}

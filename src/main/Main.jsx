@@ -1,7 +1,7 @@
 
-import { Outlet } from 'react-router-dom';
-import Navbar from '../components/shared/Navbar';
 
+import Navbar from '../components/shared/Navbar';
+import { Outlet } from 'react-router-dom';
 const Main = () => {
     return (
         <>
