@@ -147,11 +147,11 @@ const Banner = () => {
                 </div>
                 <div className="block md:hidden mt-5">
                     {/* Mobile Background Image */}
-                    <div className="w-[1200px]">
+                    <div className="">
                         <img
                             src={bgImage}
                             alt="Background"
-                            className="w-[1200px] h-auto object-cover"
+                            className="w-full  h-auto "
                         />
                     </div>
                 </div>

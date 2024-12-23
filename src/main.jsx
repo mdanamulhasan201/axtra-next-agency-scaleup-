@@ -1,4 +1,4 @@
-import { StrictMode,  useState } from "react";
+import { StrictMode, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
 import { RouterProvider } from "react-router-dom";
@@ -8,24 +8,23 @@ import "./index.css";
 import { router } from "./routes/Routes.jsx";
 import Sidebar from "./components/darkmode/Sidebar.jsx";
 import store from "./rtk/slices/store.js";
-import 'locomotive-scroll/dist/locomotive-scroll.css';
 
 export const Root = () => {
   const [cursorType, setCursorType] = useState("animated");
   // useEffect(() => {
-  //   const scroll = new LocomotiveScroll({
-  //     el: document.querySelector('#scroll-container'),
-  //     smooth: true,
-  //   });
+  //     const scroll = new LocomotiveScroll({
+  //         el: document.querySelector('#scroll-container'),
+  //         smooth: true,
+  //     });
 
-  //   return () => {
-  //     scroll.destroy();
-  //   };
+  //     return () => {
+  //         scroll.destroy();
+  //     };
   // }, []);
 
   return (
     <Provider store={store}>
-      <div >
+      <div>
         {cursorType === "animated" && (
           <AnimatedCursor
             innerSize={8}
