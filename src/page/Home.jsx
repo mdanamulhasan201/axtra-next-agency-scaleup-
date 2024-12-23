@@ -26,9 +26,15 @@ const Home = () => {
                     </div>
                 </div>
 
-                <div className="flex justify-between items-center gap-24 lg:-mt-10 z-1">
+                <div className="flex justify-between items-center gap-24 lg:-mt-10 ">
                     <p className="z-10 w-3/12 text-md">Static and dynamic secure code review can prevent a day before your product is even released. We can integrate with your dev environment</p>
-                    <h1 className="text-7xl  w-8/12 z-40 md:text-[170px] lg:text-[200px] 2xl:text-[280px] leading-none uppercase font-semibold">Eting</h1>
+                    <h1 className="text-7xl z-1 w-8/12 z-40 md:text-[170px] lg:text-[200px] 2xl:text-[280px] leading-none uppercase font-semibold">Eting</h1>
+
+                    <div className="hidden lg:flex">
+                        <div className="absolute right-0   z-0">
+                            <img src={bgImage} alt="" className="" />
+                        </div>
+                    </div>
                 </div>
 
                 {/* <div className="flex justify-between items-center gap-10">
@@ -47,11 +53,11 @@ const Home = () => {
                     <PiStarFourFill className=" text-xl" />
                 </div>
 
-                <div className="hidden lg:flex">
+                {/* <div className="hidden lg:flex">
                     <div className="absolute right-0  xl:bottom-16 z-0">
                         <img src={bgImage} alt="" className="" />
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
     );
