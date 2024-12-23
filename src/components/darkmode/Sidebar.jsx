@@ -39,7 +39,7 @@ const Sidebar = () => {
             {/* Sidebar Toggle Button */}
             <button
                 onClick={toggleSidebar}
-                className={`fixed top-1/2 right-0 transform -translate-y-1/2 p-3 shadow-md ${isDarkMode ? "bg-white text-black" : "bg-black text-white"
+                className={`fixed top-1/2  right-0 transform -translate-y-1/2 p-3 shadow-md ${isDarkMode ? "bg-white text-black" : "bg-black text-white"
                     }`}
             >
                 <FaCog className="text-2xl animate-spinSlow hover:text-[#777777] transition-colors duration-300" />

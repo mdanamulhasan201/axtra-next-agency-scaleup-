@@ -116,7 +116,7 @@ const Navbar = () => {
                 className={`sticky top-0 left-0 w-full px-5 lg:px-10 py-6 z-40 flex items-center justify-between transition-all duration-300 ${isDarkMode
                     ? isScrolled
                         ? "bg-[#121212] text-white  border-b border-gray-800"
-                        : "bg-[#121212] text-white"
+                        : "bg-[#171717] text-white"
                     : isScrolled
                         ? "bg-white text-black border-b border-gray-100"
                         : "bg-white text-black"
@@ -269,11 +269,11 @@ const Navbar = () => {
             {/* Full-page Sidebar with Zoom Animation only large device show */}
             <div
                 ref={sidebarRef}
-                className={`fixed top-0 left-0 w-full h-full ${isDarkMode ? "bg-[#121212] text-white" : "bg-white text-black"
+                className={`fixed top-0 z-50 left-0 w-full h-full ${isDarkMode ? "bg-[#121212] text-white" : "bg-white text-black"
                     } z-50 hidden lg:block`}
                 style={{ display: 'none' }}
             >
-                <div className=" flex flex-col h-full">
+                <div className=" flex flex-col h-full ">
 
                     <div className="flex">
                         <div className="w-2/12 py-16 ">
