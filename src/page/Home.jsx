@@ -49,7 +49,7 @@ const Home = () => {
 
                 <div className="hidden lg:flex">
                     <div className="absolute right-0  xl:bottom-16 z-0">
-                        <img src={bgImage} alt="" className="w-96 xl:w-full" />
+                        <img src={bgImage} alt="" className="" />
                     </div>
                 </div>
             </div>
