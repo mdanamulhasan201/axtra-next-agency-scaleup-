@@ -28,7 +28,7 @@ const Home = () => {
 
                 <div className="flex flex-col md:flex-row justify-between items-center gap-10 lg:-mt-10">
                     {/* Heading - Shown first on mobile */}
-                    <h1 className="order-1 sm:order-2 text-end sm:text-center text-8xl z-1 w-full md:w-8/12 z-40 md:text-[160px] lg:text-[180px] 2xl:text-[280px] leading-none uppercase font-semibold">
+                    <h1 className="order-1 sm:order-2 text-end sm:text-center md:text-start text-8xl z-1 w-full md:w-8/12 z-40 md:text-[160px] lg:text-[180px] 2xl:text-[280px] leading-none uppercase font-semibold">
                         Eting
                     </h1>
 
