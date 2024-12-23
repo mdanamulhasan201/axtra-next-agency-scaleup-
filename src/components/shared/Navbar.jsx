@@ -113,7 +113,7 @@ const Navbar = () => {
     return (
         <>
             <nav
-                className={`sticky top-0 left-0 w-full px-5 lg:px-10 py-6 z-40 flex items-center justify-between transition-all duration-300 ${isDarkMode
+                className={`sticky z-50  top-0 left-0 w-full px-5 lg:px-10 py-6  flex items-center justify-between transition-all duration-300 ${isDarkMode
                     ? isScrolled
                         ? "bg-[#121212] text-white  border-b border-gray-800"
                         : "bg-[#171717] text-white"
@@ -217,7 +217,7 @@ const Navbar = () => {
             </nav>
 
             <div ref={sidebarRefPh}
-                className={`fixed block lg:hidden top-0 left-0 w-full h-full ${isDarkMode ? "bg-[#121212] text-white" : "bg-[#121212] text-white"
+                className={`fixed block z-50  lg:hidden top-0 left-0 w-full h-full ${isDarkMode ? "bg-[#121212] text-white" : "bg-[#121212] text-white"
                     } z-50`}
                 style={{ display: 'none' }}>
                 <div className="absolute top-5 right-5">

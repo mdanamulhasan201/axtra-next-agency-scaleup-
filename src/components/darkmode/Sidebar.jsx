@@ -48,7 +48,7 @@ const Sidebar = () => {
             {/* Sidebar Content */}
             <div
                 ref={sidebarRef}
-                className={`fixed top-1/2 right-0 w-72 h-auto shadow-lg rounded-l-lg p-4 transform -translate-y-1/2 translate-x-full ${isDarkMode ? "bg-[#121212] text-white" : "bg-gray-100 text-black"
+                className={`fixed top-1/2 z-50 right-0 w-72 h-auto shadow-lg rounded-l-lg p-4 transform -translate-y-1/2 translate-x-full ${isDarkMode ? "bg-[#121212] text-white" : "bg-gray-100 text-black"
                     }`}
             >
                 {showCloseButton && (
@@ -61,7 +61,7 @@ const Sidebar = () => {
                     </button>
                 )}
 
-                <div className="p-5">
+                <div className="p-5 z-50">
                     <h3 className="text-lg font-bold">Cursor</h3>
                     <select
                         className={`w-full mt-2 p-2 rounded ${isDarkMode ? "bg-[#2b2b2f] text-white" : "bg-gray-200 text-black"
