@@ -8,6 +8,7 @@ import "./index.css";
 import { router } from "./routes/Routes.jsx";
 import Sidebar from "./components/darkmode/Sidebar.jsx";
 import store from "./rtk/slices/store.js";
+import ScrollToTopBottom from "./components/ScrollToTopBottom.jsx";
 
 export const Root = () => {
   const [cursorType, setCursorType] = useState("animated");
@@ -36,6 +37,7 @@ export const Root = () => {
             clickables={["a", "button", "input", "textarea", "select", "label"]}
           />
         )}
+        <ScrollToTopBottom/>
         <RouterProvider router={router} />
         <Sidebar onCursorChange={setCursorType} />
       </div>
