@@ -187,7 +187,7 @@ const HorizontalScroll = () => {
                             <p className="text-2xl text-center font-semibold mb-5">Have you project in mind?
 
                             </p>
-                            <h1 className="text-6xl text-white text-center">Let’s make something <br /> great together!
+                            <h1 className="text-6xl  text-center">Let’s make something <br /> great together!
                             </h1>
                         </div>
                     </div>
