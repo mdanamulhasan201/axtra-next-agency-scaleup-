@@ -83,6 +83,8 @@ const Services = () => {
         return () => window.removeEventListener('mousemove', handleMouseMove);
     }, []);
 
+
+
     const ServiceCard = ({ service, index }) => {
         const cardRef = useRef(null);
         const buttonRef = useRef(null);
@@ -115,7 +117,7 @@ const Services = () => {
         return (
             <div
                 ref={cardRef}
-                className="relative border-b last:border-b-0 py-20 px-12"
+                className={`relative md:border-b md:last:border-b-0  py-20 px-5 ${isDarkMode ? "border-gray-800" : "border-gray-200"}`}
                 onMouseEnter={() => {
                     setHoveredService(service.id);
                     setIsHovered(true);
@@ -127,16 +129,16 @@ const Services = () => {
                     }
                 }}
             >
-                <div className="flex justify-between items-start gap-16 relative z-20">
-                    <div className="w-1/3">
-                        <h2 className={`text-5xl font-bold mb-6 transition-all duration-300 ${isDarkMode ? "text-white" : "text-black"
+                <div className="flex flex-col md:flex-row justify-between items-start gap-5 md:gap-16 relative z-20">
+                    <div className="w-full md:w-1/3">
+                        <h2 className={`text-3xl lg:text-5xl font-bold  transition-all duration-300 ${isDarkMode ? "text-white" : "text-black"
                             } group-hover:text-gray-500`}>
                             {service.title}
                         </h2>
                     </div>
 
-                    <div className="w-1/3">
-                        <p className={`text-lg mb-8 ${isDarkMode ? "text-gray-300" : "text-gray-600"
+                    <div className="w-full md:w-1/3">
+                        <p className={`text-lg ${isDarkMode ? "text-gray-300" : "text-gray-600"
                             }`}>
                             {service.describe}
                         </p>
@@ -152,7 +154,7 @@ const Services = () => {
                         </div>
                     </div>
 
-                    <div className="w-1/3 flex justify-end">
+                    <div className="w-full md:w-1/3 flex justify-start md:justify-end">
                         <button
                             ref={buttonRef}
                             className="relative px-6 py-3 border-2 border-gray-500 text-gray-500 w-36 h-36 rounded-full bg-transparent overflow-hidden group/button"
@@ -176,22 +178,24 @@ const Services = () => {
                     </div>
                 </div>
 
-                <div
-                    className={`fixed pointer-events-none z-10 -mt-24 -ml-24 rounded-lg overflow-hidden transition-opacity duration-300 ${hoveredService === service.id && isMouseInBounds ? "opacity-100" : "opacity-0"
-                        }`}
-                    style={{
-                        left: `${mousePosition.x}px`,
-                        top: `${mousePosition.y}px`,
-                        transform: 'translate(-50%, -50%)',
-                        visibility: hoveredService === service.id ? 'visible' : 'hidden'
-                    }}
-                >
-                    <div className="w-full h-full bg-gray-200 flex items-center justify-center">
-                        <img
-                            src={service.img}
-                            alt={service.title}
-                            className="w-full h-full object-cover"
-                        />
+                <div className="md:block hidden ">
+                    <div
+                        className={`fixed pointer-events-none z-10 -mt-24 -ml-24 rounded-lg overflow-hidden transition-opacity duration-300 ${hoveredService === service.id && isMouseInBounds ? "opacity-100" : "opacity-0"
+                            }`}
+                        style={{
+                            left: `${mousePosition.x}px`,
+                            top: `${mousePosition.y}px`,
+                            transform: 'translate(-50%, -50%)',
+                            visibility: hoveredService === service.id ? 'visible' : 'hidden'
+                        }}
+                    >
+                        <div className="w-full h-full bg-gray-200 flex items-center justify-center">
+                            <img
+                                src={service.img}
+                                alt={service.title}
+                                className="w-full h-full object-cover"
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
