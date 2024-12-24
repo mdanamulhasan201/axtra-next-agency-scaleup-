@@ -13,6 +13,9 @@ const WhoWeAre = () => {
     const hiddenSubHeadingRef = useRef(null);
     const buttonRef = useRef(null);
     const isDarkMode = useSelector((state) => state.darkMode.isDarkMode);
+
+
+    
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
 
@@ -167,7 +170,7 @@ const WhoWeAre = () => {
                                 to produce brand experiences that customers love our services.
                             </p>
 
-                            <div className="mt-16">
+                            <div className="my-16">
                                 <button
                                     ref={buttonRef}
                                     className="relative px-6 py-3 border-2 border-gray-500 text-gray-500 w-36 h-36 rounded-full bg-transparent overflow-hidden group"

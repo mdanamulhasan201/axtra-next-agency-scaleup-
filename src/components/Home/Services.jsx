@@ -6,7 +6,7 @@ import ContentMarketing from '../../assets/services/3.png';
 import SocialMarketing from '../../assets/services/4.png';
 import { RxArrowTopRight } from "react-icons/rx";
 import gsap from 'gsap';
-
+import ScrollTrigger from 'gsap/ScrollTrigger';
 
 const Services = () => {
     const isDarkMode = useSelector((state) => state.darkMode.isDarkMode);
@@ -14,8 +14,9 @@ const Services = () => {
     const [hoveredService, setHoveredService] = useState(null);
     const [isMouseInBounds, setIsMouseInBounds] = useState(false);
     const servicesContainerRef = useRef(null);
-
-
+    const headingRef = useRef(null);
+    const subHeadingRef = useRef(null);
+    gsap.registerPlugin(ScrollTrigger);
 
     const data = [
         {
@@ -82,7 +83,40 @@ const Services = () => {
         window.addEventListener('mousemove', handleMouseMove);
         return () => window.removeEventListener('mousemove', handleMouseMove);
     }, []);
-
+    useEffect(() => {
+        // Animate heading on scroll
+        gsap.fromTo(
+            headingRef.current,
+            { opacity: 0, y: 50 },
+            {
+                opacity: 1,
+                y: 0,
+                duration: 1.5,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: headingRef.current,
+                    start: "top 90%",
+                    toggleActions: "play none none none",
+                },
+            }
+        );
+        // sub heading
+        gsap.fromTo(
+            subHeadingRef.current,
+            { opacity: 0, y: 50 },
+            {
+                opacity: 1,
+                y: 0,
+                duration: 1.5,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: subHeadingRef.current,
+                    start: "top 80%",
+                    toggleActions: "play none none none",
+                },
+            }
+        );
+    }, []);
 
 
     const ServiceCard = ({ service, index }) => {
@@ -91,6 +125,7 @@ const Services = () => {
         const [isHovered, setIsHovered] = useState(false);
         const [buttonPosition, setButtonPosition] = useState({ x: 0, y: 0 });
 
+        gsap.registerPlugin(ScrollTrigger);
         const handleButtonMouseEnter = () => {
             gsap.to(buttonRef.current, {
                 scale: 1.1,
@@ -114,6 +149,8 @@ const Services = () => {
             const y = e.clientY - rect.top - rect.height / 2;
             setButtonPosition({ x, y });
         };
+       
+    
         return (
             <div
                 ref={cardRef}
@@ -131,7 +168,7 @@ const Services = () => {
             >
                 <div className="flex flex-col md:flex-row justify-between items-start gap-5 md:gap-16 relative z-20">
                     <div className="w-full md:w-1/3">
-                        <h2 className={`text-3xl lg:text-5xl font-bold  transition-all duration-300 ${isDarkMode ? "text-white" : "text-black"
+                        <h2 ref={headingRef} className={`text-3xl lg:text-5xl font-bold  transition-all duration-300 ${isDarkMode ? "text-white" : "text-black"
                             } group-hover:text-gray-500`}>
                             {service.title}
                         </h2>
@@ -208,7 +245,7 @@ const Services = () => {
                 <div className="hidden md:block">
                     <div className="">
                         <div className="absolute top-32 left-[300px] lg:left-[380px] xl:left-[350px] transform">
-                            <div className={` px-5 py-5 ${isDarkMode ? "text-white bg-[#171717]" : "bg-white"}`}>
+                            <div ref={headingRef} className={` px-5 py-5 ${isDarkMode ? "text-white bg-[#171717]" : "bg-white"}`}>
                                 <h3 className={`text-lg uppercase font-semibold  mb-2 tracking-wide ${isDarkMode ? "text-gray-300" : "text-gray-500"}`}>Services</h3>
                                 <h1 className="font-semibold tracking-wide text-4xl xl:text-5xl uppercase w-[400px]">
                                     Our marketing
@@ -223,7 +260,7 @@ const Services = () => {
 
                         </div>
                         <div className={`w-7/12 border-s  ${isDarkMode ? "border-gray-800" : "border-gray-200"}`}>
-                            <div className="pt-80 mb-24 px-5">
+                            <div ref={subHeadingRef} className="pt-80 mb-24 px-5">
                                 <p className={`pt-10 text-lg w-3/4 ${isDarkMode ? "text-gray-300" : "text-gray-500"}`}>Consumers today rely heavily on digital means to
                                     research products. We research a brand of bldend
                                     engaging with it, according to the meanwhile, 51%
