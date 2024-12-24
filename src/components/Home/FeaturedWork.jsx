@@ -91,12 +91,19 @@ const FeaturedWork = () => {
     }, []);
 
     return (
-        <div className="bg-[#171717] text-white min-h-screen">
+        <div className="bg-[#171717] text-white ">
             <div className="max-w-screen-xl mx-auto px-5 relative">
                 <div className="py-16">
                     <h1 className="uppercase font-semibold text-lg">
                         Featured<br />Work
                     </h1>
+
+
+                    {/* <div className="flex items-center gap-2">
+                            <span className="text-4xl font-bold">{currentSlide}</span>
+                            <span className="text-xl opacity-50">/</span>
+                            <span className="text-xl opacity-50">{data.length}</span>
+                        </div> */}
 
                     <div className="relative overflow-hidden group">
                         <div className="flex items-center justify-between absolute top-1/2 left-0 right-0 z-10 px-4 opacity-0 group-hover:opacity-100 group-hover:visible transition-opacity duration-500 ease-in-out">
@@ -121,26 +128,27 @@ const FeaturedWork = () => {
                                     ref={(el) => (slideRefs.current[index] = el)}
                                     className="absolute inset-0 flex justify-end items-center"
                                 >
-                                    <div className="absolute hidden md:block  left-20 top-8 lg:left-64 lg:top-8 xl:left-56 2xl:left-56 2xl:top-16 z-20">
+                                    {/* xl:left-56 */}
+                                    <div className="absolute hidden md:block  left-20 top-8 lg:left-64 lg:top-8 xl:left-56 xl:top-24 z-20">
                                         <div
                                             ref={(el) => (titleRefs.current[index * 3] = el)}
-                                            className="uppercase text-8xl lg:text-[130px] xl:text-[140px] 2xl:text-[130px] leading-none whitespace-pre-line"
+                                            className="uppercase text-8xl lg:text-[130px] xl:text-[140px]  leading-none whitespace-pre-line"
                                         >
                                             {slide.title1}
                                         </div>
                                     </div>
-                                    <div className="absolute hidden md:block left-48 top-60 2xl:left-96 2xl:top-52 z-20">
+                                    <div className="absolute hidden md:block left-48 top-60 xl:left-96 xl:top-64 z-20">
                                         <div
                                             ref={(el) => (titleRefs.current[index * 3 + 1] = el)}
-                                            className="uppercase text-8xl lg:text-[130px] xl:text-[140px] 2xl:text-[130px] leading-none whitespace-pre-line"
+                                            className="uppercase text-8xl lg:text-[130px]  xl:text-[130px] leading-none whitespace-pre-line"
                                         >
                                             {slide.title2}
                                         </div>
                                     </div>
-                                    <div className="absolute hidden md:block 2xl:left-56 top-[340px] z-20">
+                                    <div className="absolute hidden md:block xl:left-56 xl:top-[405px] z-20">
                                         <div
                                             ref={(el) => (titleRefs.current[index * 3 + 2] = el)}
-                                            className="uppercase text-8xl lg:text-[130px] xl:text-[140px] 2xl:text-[130px] leading-none whitespace-pre-line"
+                                            className="uppercase text-8xl lg:text-[130px]  xl:text-[130px] leading-none whitespace-pre-line"
                                         >
                                             {slide.title3}
                                         </div>
