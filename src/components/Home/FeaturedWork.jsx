@@ -129,7 +129,7 @@ const FeaturedWork = () => {
                                             {slide.title1}
                                         </div>
                                     </div>
-                                    <div className="absolute hidden md:block lg:left-[450px] lg:top-52 2xl:left-96 2xl:top-60 z-20">
+                                    <div className="absolute hidden md:block lg:left-[450px] lg:top-52 2xl:left-96 2xl:top-[234px] z-20">
                                         <div
                                             ref={(el) => (titleRefs.current[index * 3 + 1] = el)}
                                             className="uppercase text-8xl lg:text-[130px] xl:text-[140px] 2xl:text-[160px] leading-none whitespace-pre-line"
@@ -137,7 +137,7 @@ const FeaturedWork = () => {
                                             {slide.title2}
                                         </div>
                                     </div>
-                                    <div className="absolute hidden md:block lg:left-56 lg:top-80 2xl:left-48 2xl:top-[380px] z-20">
+                                    <div className="absolute hidden md:block lg:left-56 lg:top-[350px] 2xl:left-48 2xl:top-[400px] z-20">
                                         <div
                                             ref={(el) => (titleRefs.current[index * 3 + 2] = el)}
                                             className="uppercase text-8xl lg:text-[130px] xl:text-[140px] 2xl:text-[160px] leading-none whitespace-pre-line"
