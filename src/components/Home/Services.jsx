@@ -168,7 +168,7 @@ const Services = () => {
             >
                 <div className="flex flex-col md:flex-row justify-between items-start gap-5 md:gap-16 relative z-20">
                     <div className="w-full md:w-1/3">
-                        <h2 ref={headingRef} className={`text-3xl lg:text-5xl font-bold  transition-all duration-300 ${isDarkMode ? "text-white" : "text-black"
+                        <h2  className={`text-3xl lg:text-5xl font-bold  transition-all duration-300 ${isDarkMode ? "text-white" : "text-black"
                             } group-hover:text-gray-500`}>
                             {service.title}
                         </h2>
