@@ -7,20 +7,8 @@ import Testimonial from '../components/Home/Testimonial';
 import WhoWeAre from '../components/Home/WhoWeAre';
 import WhyChooseUs from '../components/Home/WhyChooseUs';
 import Brands from '../components/brands/Brands';
-// import LocomotiveScroll from 'locomotive-scroll';
-// import 'locomotive-scroll/dist/locomotive-scroll.css';
+
 const Home = () => {
-
-    //   useEffect(() => {
-    //     const scroll = new LocomotiveScroll({
-    //       el: document.querySelector('#scroll-container'),
-    //       smooth: true,
-    //     });
-
-    //     return () => {
-    //       scroll.destroy();
-    //     };
-    //   }, []);
     return (
         <div >
             <Banner />

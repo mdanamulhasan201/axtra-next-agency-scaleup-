@@ -12,16 +12,6 @@ import ScrollToTopBottom from "./components/ScrollToTopBottom.jsx";
 
 export const Root = () => {
   const [cursorType, setCursorType] = useState("animated");
-  // useEffect(() => {
-  //     const scroll = new LocomotiveScroll({
-  //         el: document.querySelector('#scroll-container'),
-  //         smooth: true,
-  //     });
-
-  //     return () => {
-  //         scroll.destroy();
-  //     };
-  // }, []);
 
   return (
     <Provider store={store}>
