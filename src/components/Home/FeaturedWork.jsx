@@ -94,7 +94,7 @@ const FeaturedWork = () => {
         <div className="bg-[#171717] text-white min-h-screen">
             <div className="max-w-screen-xl mx-auto px-5 relative">
                 <div className="py-16">
-                    <h1 className="uppercase font-semibold text-lg">
+                    <h1 className="uppercase font-semibold text-lg md:mb-0 mb-10">
                         Featured<br />Work
                     </h1>
 
@@ -121,10 +121,20 @@ const FeaturedWork = () => {
                                     ref={(el) => (slideRefs.current[index] = el)}
                                     className="absolute inset-0 flex justify-end items-center"
                                 >
-                                    <div className="absolute hidden md:block  left-20 top-16 lg:left-56 lg:top-16 2xl:left-40 2xl:top-24 z-20">
+                                    {/* Slide counter */}
+                                    <div className='absolute  hidden md:block top-1 left-36 lg:top-5 lg:left-[500px]'>
+                                        <div className="flex items-center gap-2">
+                                            <span className="text-5xl font-bold">{currentSlide}</span>
+                                            <span className="text-5xl opacity-50">/</span>
+                                            <span className="text-xl opacity-50">{data.length}</span>
+                                        </div>
+                                    </div>
+
+                                    {/* Titles for larger screens */}
+                                    <div className="absolute hidden md:block left-20 top-16 lg:left-56 lg:top-16 2xl:left-40 2xl:top-24 z-20">
                                         <div
                                             ref={(el) => (titleRefs.current[index * 3] = el)}
-                                            className="uppercase text-9xl lg:text-[140px]  2xl:text-[160px] leading-none whitespace-pre-line"
+                                            className="uppercase text-9xl lg:text-[140px] 2xl:text-[160px] leading-none whitespace-pre-line"
                                         >
                                             {slide.title1}
                                         </div>
@@ -145,6 +155,8 @@ const FeaturedWork = () => {
                                             {slide.title3}
                                         </div>
                                     </div>
+
+                                    {/* Mobile-specific title overlay */}
                                     <div className="w-full md:w-8/12 lg:w-5/12">
                                         <div className="relative aspect-[3/4]">
                                             <img
@@ -152,10 +164,31 @@ const FeaturedWork = () => {
                                                 alt={`Featured work ${slide.id}`}
                                                 className="object-cover w-full h-full"
                                             />
+                                            <div className="absolute inset-0 bg-black/0 flex flex-col justify-center  text-white text-center md:hidden">
+                                                <div>
+                                                    <div className='absolute   top-0'>
+                                                        <div className="flex items-center gap-2">
+                                                            <span className="text-5xl font-bold">{currentSlide}</span>
+                                                            <span className="text-5xl opacity-50">/</span>
+                                                            <span className="text-xl opacity-50">{data.length}</span>
+                                                        </div>
+                                                    </div>
+                                                    <div className='text-start'>
+                                                        <h1 className="text-6xl font-bold uppercase">{slide.title1}</h1>
+                                                    </div>
+                                                    <div className='text-center'>
+                                                        <h1 className="text-6xl font-bold uppercase">{slide.title2}</h1>
+                                                    </div>
+                                                    <div className='text-start'>
+                                                        <h1 className="text-6xl font-bold uppercase">{slide.title3}</h1>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             ))}
+
                         </div>
                     </div>
                 </div>
