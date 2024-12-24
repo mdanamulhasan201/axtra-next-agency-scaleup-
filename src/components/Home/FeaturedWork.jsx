@@ -121,26 +121,26 @@ const FeaturedWork = () => {
                                     ref={(el) => (slideRefs.current[index] = el)}
                                     className="absolute inset-0 flex justify-end items-center"
                                 >
-                                    <div className="absolute hidden md:block  left-20 top-8 lg:left-56 lg:top-16 2xl:left-40 2xl:top-16 z-20">
+                                    <div className="absolute hidden md:block  left-20 top-16 lg:left-56 lg:top-16 2xl:left-40 2xl:top-24 z-20">
                                         <div
                                             ref={(el) => (titleRefs.current[index * 3] = el)}
-                                            className="uppercase text-8xl lg:text-[140px]  2xl:text-[160px] leading-none whitespace-pre-line"
+                                            className="uppercase text-9xl lg:text-[140px]  2xl:text-[160px] leading-none whitespace-pre-line"
                                         >
                                             {slide.title1}
                                         </div>
                                     </div>
-                                    <div className="absolute hidden md:block lg:left-[450px] lg:top-52 2xl:left-96 2xl:top-[234px] z-20">
+                                    <div className="absolute hidden md:block left-40 top-60 lg:left-[450px] lg:top-52 2xl:left-96 2xl:top-[280px] z-20">
                                         <div
                                             ref={(el) => (titleRefs.current[index * 3 + 1] = el)}
-                                            className="uppercase text-8xl lg:text-[130px] xl:text-[140px] 2xl:text-[160px] leading-none whitespace-pre-line"
+                                            className="uppercase text-9xl lg:text-[130px] xl:text-[140px] 2xl:text-[160px] leading-none whitespace-pre-line"
                                         >
                                             {slide.title2}
                                         </div>
                                     </div>
-                                    <div className="absolute hidden md:block lg:left-56 lg:top-[350px] 2xl:left-48 2xl:top-[400px] z-20">
+                                    <div className="absolute hidden md:block left-20 top-[400px] lg:left-56 lg:top-[350px] 2xl:left-48 2xl:top-[470px] z-20">
                                         <div
                                             ref={(el) => (titleRefs.current[index * 3 + 2] = el)}
-                                            className="uppercase text-8xl lg:text-[130px] xl:text-[140px] 2xl:text-[160px] leading-none whitespace-pre-line"
+                                            className="uppercase text-9xl lg:text-[130px] xl:text-[140px] 2xl:text-[160px] leading-none whitespace-pre-line"
                                         >
                                             {slide.title3}
                                         </div>
