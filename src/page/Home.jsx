@@ -1,6 +1,7 @@
 
 // import { useEffect } from 'react';
 import Banner from '../components/Home/Banner';
+import Services from '../components/Home/Services';
 import WhoWeAre from '../components/Home/WhoWeAre';
 import Brands from '../components/brands/Brands';
 // import LocomotiveScroll from 'locomotive-scroll';
@@ -22,6 +23,7 @@ const Home = () => {
             <Banner />
             <Brands />
             <WhoWeAre/>
+            <Services/>
         </div>
     );
 };
