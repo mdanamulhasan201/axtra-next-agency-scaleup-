@@ -37,7 +37,7 @@ export const Root = () => {
             clickables={["a", "button", "input", "textarea", "select", "label"]}
           />
         )}
-        <ScrollToTopBottom/>
+        <ScrollToTopBottom />
         <RouterProvider router={router} />
         <Sidebar onCursorChange={setCursorType} />
       </div>

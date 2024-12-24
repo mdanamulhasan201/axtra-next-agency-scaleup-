@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { FaArrowUp } from 'react-icons/fa'; // Using react-icons for the arrow icon
+import { FaArrowUp } from 'react-icons/fa'; 
 
 const ScrollToTopBottom = () => {
     const [isVisible, setIsVisible] = useState(false);
