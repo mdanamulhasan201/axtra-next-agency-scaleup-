@@ -45,7 +45,6 @@ const HorizontalScroll = () => {
                     <div className={`panel w-screen  h-screen flex items-center justify-center  flex-shrink-0 ${isDarkMode ? "text-white bg-[#171717]" : "text-black bg-[#FFFAF0]"}`}>
 
                         <h1 className="text-6xl md:text-9xl font-semibold uppercase text-center">Why <br /> Choose Us </h1>
-                        {/* <h1 className="text-9xl font-semibold uppercase"> </h1> */}
 
                     </div>
                     <div

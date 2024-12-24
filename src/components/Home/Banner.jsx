@@ -5,6 +5,7 @@ import bgImage from "../../assets/imagebg.webp";
 // import { BiChevronDown } from "react-icons/bi";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import { BiChevronDown } from "react-icons/bi";
 
 
 const Banner = () => {
@@ -16,8 +17,8 @@ const Banner = () => {
     useEffect(() => {
         // Animate the button using GSAP
         gsap.to(buttonRef.current, {
-            y: -10,
-            duration: 1.5,
+            y: -20,
+            duration: 1,
             yoyo: true,
             repeat: -1,
             ease: "power1.inOut",
@@ -74,9 +75,19 @@ const Banner = () => {
         <div className={` relative ${isDarkMode ? "bg-[#171717] text-white" : "bg-white text-black"
             }`}>
 
-                  {/* left side circle */}
-        <div className="absolute top-1/2 left-0 transform -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-gray-500 rounded-full opacity-30"></div>
-            <div className="max-w-screen-xl mx-auto py-20 md:pb-96 ">
+            {/* left side circle */}
+            <div className="absolute top-1/2 left-0 transform -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-gray-500 rounded-full opacity-30"></div>
+            <div className="max-w-screen-xl mx-auto py-20 md:pb-96 relative">
+                {/* button */}
+                <div className="absolute bottom-64 left-5 2xl:left-0 hidden lg:flex">
+                    <button
+                        ref={buttonRef}
+                        className="flex flex-col justify-center items-center w-12 h-20 border-2 border-gray-400 rounded-full relative"
+                    >
+                        <span className="w-[2px] h-4 bg-gray-600 mb-1"></span>
+                        <BiChevronDown className="text-gray-600 text-2xl" />
+                    </button>
+                </div>
                 <div className="px-5">
                     <div className="flex gap-10 items-center">
                         <h1 className="uppercase font-semibold text-2xl ">Digital</h1>
@@ -160,15 +171,7 @@ const Banner = () => {
                 </div>
 
             </div>
-            {/* <div className="">
-                    <button
-                        ref={buttonRef}
-                        className="flex flex-col justify-center items-center w-12 h-20 border-2 border-gray-400 rounded-full relative"
-                    >
-                        <span className="w-[2px] h-4 bg-gray-600 mb-1"></span>
-                        <BiChevronDown className="text-gray-600 text-2xl" />
-                    </button>
-                </div> */}
+
             <div>
 
                 <div className="absolute top-10 px-14 right-0 flex justify-center items-center">
