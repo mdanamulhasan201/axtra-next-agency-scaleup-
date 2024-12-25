@@ -8,7 +8,7 @@ import Testimonial from '../components/Home/Testimonial';
 import WhoWeAre from '../components/Home/WhoWeAre';
 import WhyChooseUs from '../components/Home/WhyChooseUs';
 import Brands from '../components/brands/Brands';
-// import Footer from '../components/shared/Footer';
+
 
 const Home = () => {
     return (
@@ -21,7 +21,6 @@ const Home = () => {
             <Testimonial />
             <WhyChooseUs/>
             <PricingTable/>
-            {/* <Footer/> */}
         </div>
     );
 };

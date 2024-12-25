@@ -58,7 +58,7 @@ const Footer = () => {
         <div className=" bg-[#171717] text-white px-5 lg:px-10">
 
 
-            <div className='flex justify-between items-center border-b border-gray-700  '>
+            <div className='flex flex-col md:flex-row md:py-0 py-10 justify-between items-center border-b border-gray-700  '>
                 {/* Left Section */}
                 <div className="">
                     <div className="mb-6">
@@ -72,11 +72,11 @@ const Footer = () => {
                 </div>
 
                 {/* Center Social Links */}
-                <div className="text-center ">
+                <div className="text-center mt-20 md:mt-0">
                     {['FACEBOOK', 'TWITTER', 'LINKEDIN', 'INSTAGRAM'].map((social) => (
                         <div
                             key={social}
-                            className="py-10 border border-zinc-800 hover:bg-white hover:text-black transform duration-300 transition-opacity cursor-pointer w-48"
+                            className="py-10 border border-zinc-800 hover:bg-white hover:text-black transform duration-300 transition-opacity cursor-pointer w-80 md:w-48 "
                         >
                             {social}
                         </div>
@@ -85,7 +85,7 @@ const Footer = () => {
 
                 {/* Right Section - Let's Talk */}
                 <div className="">
-                    <h1 className="text-6xl lg:text-9xl font-bold whitespace-nowrap">
+                    <h1 className="text-6xl lg:text-9xl font-bold whitespace-nowrap md:mt-0 mt-28">
                         {"LET'S TALK".split('').map((letter, index) => (
                             <span
                                 key={index}
@@ -101,25 +101,30 @@ const Footer = () => {
             </div>
 
             {/* Bottom Section */}
+
             <div className="py-16">
-                <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center">
-                    <div className="text-md  ">
+                <div className="flex flex-col lg:flex-row justify-between items-center">
+
+
+                    {/* Copyright text - show second on mobile */}
+                    <div className="text-md order-2 lg:order-none mt-10 md:mt-0">
                         © 2022 - 2025 | All rights reserved<br className="lg:hidden" />
                         {/* by Wealcoder */}
                     </div>
 
-                    <nav className="flex flex-wrap gap-8">
+                    {/* Navigation menu - show first on mobile */}
+                    <nav className="flex flex-wrap gap-8   order-1 lg:order-none">
                         {['ABOUT US', 'CONTACT', 'CAREER', 'FAQS'].map((item, index) => (
                             <div key={item} className="relative group">
                                 <span className="text-md cursor-pointer hover:text-gray-300 transition-colors">
                                     {item}
                                 </span>
-
                             </div>
                         ))}
                     </nav>
                 </div>
             </div>
+
 
         </div>
     );
