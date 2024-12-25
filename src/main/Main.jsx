@@ -8,6 +8,7 @@ const Main = () => {
         <>
             <Navbar />
             <Outlet />
+            {/* <Footer */}
         </>
     );
 };
