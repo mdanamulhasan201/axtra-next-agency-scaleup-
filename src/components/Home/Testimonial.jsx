@@ -146,7 +146,7 @@ const Testimonial = () => {
     return (
         <div
             ref={containerRef}
-            className={`relative overflow-x-hidden ${isDarkMode ? "bg-[#171717] text-white" : "text-black"}`}
+            className={`relative px-5 overflow-x-hidden ${isDarkMode ? "bg-[#171717] text-white" : "text-black"}`}
             style={{
                 backgroundImage: isDarkMode ? "none" : `url(${bgImg})`,
                 backgroundSize: "cover",
