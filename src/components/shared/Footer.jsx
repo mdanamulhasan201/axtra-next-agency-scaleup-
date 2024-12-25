@@ -40,9 +40,7 @@ const Footer = () => {
                     color: colors[index % colors.length],
                     duration: 0.6,
                     ease: "none"
-                }, "-=0.6"); // Start color change with the jump
-
-            // Stagger the start of each letter's animation
+                }, "-=0.6");
             tl.delay(index * 0.1);
         });
 
@@ -108,9 +106,11 @@ const Footer = () => {
 
                     {/* Copyright text - show second on mobile */}
                     <div className="text-md order-2 lg:order-none mt-10 md:mt-0">
-                        © 2022 - 2025 | All rights reserved<br className="lg:hidden" />
+                        © 2022 - {new Date().getFullYear()} | All rights reserved
+                        <br className="lg:hidden" />
                         {/* by Wealcoder */}
                     </div>
+
 
                     {/* Navigation menu - show first on mobile */}
                     <nav className="flex flex-wrap gap-8   order-1 lg:order-none">
