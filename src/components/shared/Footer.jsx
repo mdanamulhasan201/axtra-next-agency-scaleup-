@@ -1,9 +1,11 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import logo from '../../assets/site-logo-white.webp'
+import { useSelector } from 'react-redux';
 
 const Footer = () => {
     const lettersRef = useRef([]);
+    const isDarkMode = useSelector((state) => state.darkMode.isDarkMode);
     const colors = [
         '#FFD700',
         '#FFA500',
@@ -53,7 +55,7 @@ const Footer = () => {
     }, []);
 
     return (
-        <div className=" bg-[#171717] text-white px-5 lg:px-10">
+        <div className={` text-white px-5 lg:px-10 ${isDarkMode ? " bg-[#101010]" : "bg-[#171717]"}`}>
 
 
             <div className='flex flex-col md:flex-row md:py-0 py-10 justify-between items-center border-b border-gray-700  '>
