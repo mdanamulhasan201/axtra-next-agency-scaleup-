@@ -1,13 +1,15 @@
 import { useEffect, useRef, useState } from 'react';
-
+import gsap from 'gsap';
+// import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { AiOutlinePlus, AiOutlineMinus, AiOutlineCheck } from 'react-icons/ai';
+import { RxArrowTopRight } from 'react-icons/rx';
 import { useSelector } from 'react-redux';
 
 const PricingTable = () => {
-
+    const buttonRef = useRef(null);
     const [expandedItem, setExpandedItem] = useState(null);
     const isDarkMode = useSelector((state) => state.darkMode.isDarkMode);
-
+    const [position, setPosition] = useState({ x: 0, y: 0 });
 
     const toggleAccordion = (index) => {
         setExpandedItem(expandedItem === index ? null : index);
@@ -21,6 +23,31 @@ const PricingTable = () => {
         { title: "Developing core web applications", content: "Building robust and scalable web applications with modern technologies" }
     ];
 
+
+    const handleMouseEnter = () => {
+        gsap.to(buttonRef.current, {
+            scale: 1.1,
+            duration: 0.3,
+            ease: 'power2.out',
+        });
+    };
+
+    const handleMouseLeave = () => {
+        gsap.to(buttonRef.current, {
+            scale: 1,
+            duration: 0.3,
+            ease: 'power2.out',
+        });
+        setPosition({ x: 0, y: 0 });
+    };
+
+    const handleMouseMove = (e) => {
+        const rect = e.target.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        setPosition({ x, y });
+    };
+
     return (
         <div
 
@@ -29,7 +56,7 @@ const PricingTable = () => {
             <div className="max-w-screen-xl mx-auto">
                 {/* Header Section */}
                 <div className="mb-12">
-                    <h2 className="text-sm uppercase tracking-wider mb-4">PRICING TABLE</h2>
+                    <h2 className="text-md uppercase tracking-wider mb-4 ">Pricing Table</h2>
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8">BE KIND TO YOUR<br />MIND</h1>
                 </div>
 
@@ -41,7 +68,7 @@ const PricingTable = () => {
                             <div key={index} className="border-t border-gray-700">
                                 <button
                                     onClick={() => toggleAccordion(index)}
-                                    className="w-full py-4 flex items-center justify-between text-left hover:text-gray-300 transition-colors"
+                                    className="w-full py-4 flex items-center justify-between text-left hover:text-gray-500 transition-colors"
                                 >
                                     <span className="text-lg font-medium">{item.title}</span>
                                     {expandedItem === index ? (
@@ -116,10 +143,31 @@ const PricingTable = () => {
                         </div>
 
                         {/* Try It Button */}
-                        <button className="group relative overflow-hidden rounded-full border border-gray-700 p-4 flex items-center gap-2 hover:border-gray-500 transition-colors">
-                            <span>Try It Free Now</span>
-                            <span className="transform group-hover:translate-x-1 transition-transform">→</span>
-                        </button>
+                        <div className="my-16">
+                            <button
+                                ref={buttonRef}
+                                className="relative px-6 py-3 border-2 border-gray-500 text-gray-500 w-36 h-36 rounded-full bg-transparent overflow-hidden group"
+                                style={{
+                                    transform: `translate(${position.x}px, ${position.y}px)`,
+                                    transition: 'transform 0.3s ease',
+                                }}
+                                onMouseEnter={handleMouseEnter}
+                                onMouseMove={handleMouseMove}
+                                onMouseLeave={handleMouseLeave}
+                            >
+                                <span
+                                    className={`absolute inset-0  rounded-full transition-all duration-300 ease-in-out transform scale-0 group-hover:scale-150  ${isDarkMode ? " bg-white" : "bg-[#171717] text-white"}`}
+                                    style={{
+                                        zIndex: -1,
+                                    }}
+                                ></span>
+                                <span className="relative text-start flex items-center capitalize  transition-colors duration-300 ease-in-out">
+                                    Try it <br />
+                                    free now
+                                    <RxArrowTopRight />
+                                </span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
